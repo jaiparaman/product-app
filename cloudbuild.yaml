@@ -4,7 +4,7 @@ steps:
     args: ['build', '-t', 'gcr.io/arcane-pillar-414807/product-app', '.']
   # Push the image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/arcane-pillar-414807product-app']
+    args: ['push', 'gcr.io/arcane-pillar-414807/product-app']
   # Deploy the image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args: ['run', 'deploy', 'productappdeploy', '--image', 'gcr.io/arcane-pillar-414807/product-app', '--platform', 'managed']
