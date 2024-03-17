@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:14 as build
+FROM node:18 as build
 
 # Set the working directory in the container
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the Angular app for production
-RUN ng build --prod
+RUN npm run build
 
 # Use a smaller, production-ready image as the final image
 FROM nginx:alpine
@@ -22,8 +22,6 @@ FROM nginx:alpine
 # Copy the production-ready Angular app to the Nginx webserver's root directory
 COPY --from=build /app/dist/product-app /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 8080
-
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# # Start Nginx
+# # CMD ["nginx", "-g", "daemon off;"]
+# CMD ["ng", "serve", "--host", "0.0.0.0"]
