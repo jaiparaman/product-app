@@ -22,6 +22,7 @@ FROM nginx:alpine
 # Copy the production-ready Angular app to the Nginx webserver's root directory
 COPY --from=build /app/dist/product-app /usr/share/nginx/html
 
+EXPOSE 8080
 # # Start Nginx
 # # CMD ["nginx", "-g", "daemon off;"]
 # CMD ["ng", "serve", "--host", "0.0.0.0"]
