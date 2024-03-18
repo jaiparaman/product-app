@@ -1,4 +1,4 @@
- steps:
+steps:
   - name: gcr.io/cloud-builders/docker
     args:
       - build
@@ -15,4 +15,6 @@
       - '--filename=Deployment.yaml'
       - '--location=europe-west2'
       - '--cluster=autopilot-cluster-1'
-
+options:
+  substitutionOption: ALLOW_LOOSE
+  logging: CLOUD_LOGGING_ONLY
