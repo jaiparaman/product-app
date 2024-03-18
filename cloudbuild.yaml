@@ -6,3 +6,6 @@ steps:
       - "--filename=Deployment.yaml"
       - "--location=europe-west2"
       - "--cluster=autopilot-cluster-1"
+options:
+  substitutionOption: ALLOW_LOOSE
+  logging: CLOUD_LOGGING_ONLY
