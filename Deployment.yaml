@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: "product-app-sha256-1"
-        image: "gcr.io/$PROJECT_ID/product-app:$SHORT_SHA"
+        image: "gcr.io/arcane-pillar-414807/product-app:$SHORT_SHA"
 ---
 apiVersion: "autoscaling/v2"
 kind: "HorizontalPodAutoscaler"
