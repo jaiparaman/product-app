@@ -1,6 +1,11 @@
 steps:
+- name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/arcane-pillar-414807/product-app:$SHORT_SHA", "."]
+      # Docker Push
+- name: 'gcr.io/cloud-builders/docker'
+    args: ['push',' gcr.io/arcane-pillar-414807/product-app:$SHORT_SHA']
   # Deploy container image to GKE
-  - name: "gcr.io/cloud-builders/gke-deploy"
+- name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - "run"
       - "--filename=Deployment.yaml"
