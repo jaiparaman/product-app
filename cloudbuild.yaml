@@ -3,12 +3,12 @@ steps:
     args:
       - build
       - '-t'
-      - 'gcr.io/arcane-pillar-414807/product-app:$SHORT_SHA'
+      - 'gcr.io/$PROJECT_ID/product-app:$SHORT_SHA'
       - .
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - 'gcr.io/arcane-pillar-414807/product-app:$SHORT_SHA'
+      - 'gcr.io/$PROJECT_ID/product-app:$SHORT_SHA'
   - name: gcr.io/cloud-builders/gke-deploy
     args:
       - run
