@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copy the production-ready Angular app to the Nginx webserver's root directory
-COPY --from=build /app/dist/product-app /usr/share/nginx/www
+COPY --from=build /app/dist/product-app /usr/share/nginx/html
 
 EXPOSE 8080
 # # Start Nginx
